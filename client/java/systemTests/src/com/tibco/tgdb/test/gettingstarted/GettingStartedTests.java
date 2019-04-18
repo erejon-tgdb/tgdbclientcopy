@@ -66,6 +66,7 @@ public class GettingStartedTests {
 		tgServer = new TGServer(tgHome);
 		tgServer.setConfigFile(confFile);
 		try {
+			System.out.println("<<<<<" + initFile.getAbsolutePath());
 			tgServer.init(initFile.getAbsolutePath(), true, 60000);
 		}
 		catch (TGInitException ie) {
