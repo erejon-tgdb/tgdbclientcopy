@@ -1,0 +1,52 @@
+#
+# Copyright (c) 2018 TIBCO Software Inc.
+# All rights reserved.
+#
+# File name : variables.txt
+# Created on: Oct 14, 2017
+# Created by: achavan
+#
+# This is the file that has all TIBCO Graph Database configuration parameters whose values
+# can be customized by end users, before building a docker image and running the docker container
+
+# Data Base Name
+TGDB_DBNAME=my-inventory
+# Data File Location
+TGDB_DBPATH=/mnt/tibco/tgdb/data
+
+# Segment Size is specified in GB for each segment
+TGDB_SEGSIZE=1
+# Number of Data segments
+TGDB_DATASEGCNT=2
+# Data Page Size is specified in KB for each data segment
+TGDB_DATAPGSZ=1
+# Text Page Size is specified in KB for strings greater than 128 chars
+TGDB_TXTPGSZ=1
+# Number of Index segments
+TGDB_IDXSGCNT=1
+# Segment Size is specified in KB for each segment
+TGDB_IDXPGSZ=8
+
+# Runtime Memory is specified in GB
+TGDB_RUNTIME_MEMORY=4
+# Shared Memory is specified in GB
+TGDB_SHARED_MEMORY=2
+# Number of Transaction Processors
+TGDB_TXNPROCESSOR_CNT=8
+# Number of Query Processors
+TGDB_QRYPROCESSOR_CNT=8
+# Transaction Processor Depth
+TGDB_QRYPROCESSOR_QDEPTH=16
+# Query Processor Depth
+TGDB_TXNPROCESSOR_QDEPTH=16
+# REDO Queue Depth
+TGDB_REDO_QDEPTH=1000
+
+# Log Levels are - error, warning, info, user1, user2, user3, debug, debugwire, debugmemory
+TGDB_LOG_LEVEL=info:*
+# Log file location
+TGDB_LOG_LOCATION=/mnt/tibco/tgdb/logs
+# File Size is specified in MB
+TGDB_LOG_FILE_SIZE=10
+# No of Log files at any time
+TGDB_LOG_FILE_COUNT=10

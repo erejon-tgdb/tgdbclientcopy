@@ -1,0 +1,115 @@
+#
+# Copyright (c) 2018 TIBCO Software Inc.
+# All rights reserved.
+#
+#  File name : tgdb.template.conf
+#  Created on: Oct 09, 2017
+#  Created by: AbhayChavan
+#
+#  SVN Id: $Id: tgdb.conf 1680 2017-09-21 04:38:11Z ssubrama $
+#  Configuration file for TIBCO Graph Database
+#
+#
+
+[tgdb]
+name        = ${TGDB_DBNAME}          // name of the database
+dbPath      = ${TGDB_DBPATH}          // path of the database. Full or relative path.
+locale      = en_US.UTF-8             // only supported till 1.1 is en_US.UTF8
+timezone    = UTC                     // always based on UTC
+
+# The memory allocated for the engine in GB. This includes Data Cache, Index Cache, Live Txns etc.
+# Maximum allowed Memory is 2^48 if OS supports it. Minimum is 4GB and Default is 8Gb
+memory  = ${TGDB_RUNTIME_MEMORY}      // memory in GB for database engine
+
+# Shared Memory Area - This is for Write-Ahead Transaction log (wal/redo) entries, and other system administrative tasks such as
+# Backups . Minimum is 2G.
+# The WAL takes minimum of half of the shared memory.
+# The redoQDepth defines maximum number of redo transactions in the WAL device.
+# Configure it according to your OLTP needs where system depends
+# a. size of the transactions (number of entities insert/deleted/updated) and the object size
+# b. The through put needs of the OLTP.
+# c. The Shared memory size can be increased, but not decreased. But If you need to decrease it, then ensure the system is
+#    completely synced to disk, shutdown, and delete the shared memory file, and restart.
+# d. The transaction size is function of the input commit buffer size (point a) and the previous state of the system
+#    before committing the transaction.
+
+sharedmemory   = ${TGDB_SHARED_MEMORY}      // in GBs
+redoQDepth     = ${TGDB_REDO_QDEPTH}        // REDO queue depth
+
+#Enable Huge Pages. This flags is only for Linux.
+#Please see the kernel documentation for huge pages
+#https://www.kernel.org/doc/Documentation/vm/hugetlbpage.txt
+enableHugePages = false                // whether to allow Huge Page size or not
+
+# This enables the call to use OS cache for file io. Some file system allows to by-pass the OS cache by using O_DIRECT open flags.
+# Setting it to false reclaims valuable memory. Further more the system provides it own cache for database segments.
+useOsCache=false                      // whether to use O/S cache or not
+
+# Write through provides an option to let the OS to tell the disk driver to flush its cache to physical storage media.
+# Again, not all OS supports it. For Linux and ext4 file system, check with Administrator on mount options.
+# This helps data integrity, but lowers performance significantly.
+writethrough=true                     // whether to let O/S flush its cache to physical storage intermittantly or not
+
+# Specify how to sync the data to the driver/disk cache.
+# None - do not sync, buffer it and let OS decide when to write. Fastest.
+# Data - Only sync the data. Metadata such as accesstime, creation time, and other inode entries are not written. - Fast.
+# Range - sync only the range of data that has been written - Faster. Only Linux supports.
+# All - sync the data and metadata - Slow.
+synctype = Data                       // types of syncs are None, Data, Range, All
+
+# Define the nos of txnprocessor the system has. Each txnprocessor has its own thread and queue to  process.
+# Txn have affinity and stickiness to a Txn Processor.
+# Define it to nos of cores the system has, after taking out the number of writers out of the system.
+txnprocessors = ${TGDB_TXNPROCESSOR_CNT}         // number of transaction processors
+txnprocessorQDepth = ${TGDB_TXNPROCESSOR_QDEPTH}         // transaction processors depth
+txnNumRetries = 16  // Num of Retries the txn waits for the logger space (shared memory) before giving up.
+txnTimeout = 1      // Timeout as 1 sec. Specify more if there is lot of contention between writer/looger and txn processor
+
+#similarly for Query Processor
+qryprocessors = ${TGDB_QRYPROCESSOR_CNT}                 // number of query processors
+qryprocessorQDepth = ${TGDB_QRYPROCESSOR_QDEPTH}         // query processors depth
+
+# Cache for data, index, pages.
+# cacheSize is the reserved memory for page management, it is allocated from total memory.
+# Specified as a percentage of memory defined in the main config section.
+# IndexCache is percentage of the cacheSize to be used for index pages.
+# The remaining will be used for data, and txn.
+# The high water mark threshold are used to control the growth of the indexCache.
+[cache]
+cacheSize       = 60 // Percentage of the main memory. Subsequent caches such as index, data, shared take from this cache size
+indexCache      = 50,60 // Index pages to be cached. Specified as min,max pairs of percentages of the Cache size
+highThreshold   = 60,70 // High water marks points. Specified as Orange, Red pairs of percentage of the Index Cache Size.
+strategy        = lru // Default Strategy for now.
+indexPreload    = // List of index names to preload the index. Default means try all till the min index cache is achieved.
+
+# log section. The log files are created in the path specified. The file name for the logs are <name>_<dbname>.log
+# The current/latest log file is always with .log extensions. Rollover logs are labelled .0, .1, ... increasing order.
+# The latest logs are in the descending order
+
+[logger]
+level   = ${TGDB_LOG_LEVEL}      // /error/warning/info/user1/user2/user3/debug/debugwire/debugmemory...
+path    = ${TGDB_LOG_LOCATION}     // The path of the logfile. The log file name is <engine-name>_<database-name>.log[N]
+size    = ${TGDB_LOG_FILE_SIZE}        // Size of each log file in MB
+count   = ${TGDB_LOG_FILE_COUNT}        // Nos of log file.
+console = true      //Output the logs onto console. Errors will be displayed irrespectively.
+
+# Data service specifies how the listen port for the Database server is configured.
+[netlistener]
+name            = analytics     //Mandatory name
+host            = ::            //host/ip/interface to bind to
+port            = 8223          //listen port for this tier
+maxconnections  = 10            //maximum connections for this tier. Note: Community Edition limited to 5 connections
+ssl             = true		//ssl not supported for this release
+certificate     =               //If blank, use the default certificate, or specify the path for the certificate.
+#certificate    = /Users/suresh/ssl/certs/suresh-mbp.x509
+
+[netlistener]
+name            = oltp     	//Mandatory name
+host            = 0.0.0.0       //host/ip/interface to bind to
+port            = 8222          //listen port for this tier
+maxconnections  = 10            //maximum connections for this tier. Note: Community Edition limited to 5 connections
+ssl             = false		//ssl not supported for this release
+
+[gpu]
+enable         = false
+

@@ -1,0 +1,129 @@
+#
+# Copyright (c) 2018 TIBCO Software Inc.
+# All rights reserved.
+#
+# File name : tgdb-defaults.txt
+# Created on: Oct 21, 2017
+# Created by: achavan
+#
+# This is the file that has the default values for all TIBCO Graph Database configuration parameters
+# It includes all the parameters for TGDB Server Initialization as well as Runtime Configuration
+# This will be used as a reference while generating 'custom' configurations based on user inputs
+#
+
+# Database name
+name        = inventory-mod          //name of the database
+# Database path
+dbPath      = ../data                //path of the database. Full or relative path.
+# Database locale
+locale      = en_US.UTF-8              //only supported till 1.1 is en_US.UTF8
+# Database timezone
+timezone    = UTC                     //always based on UTC
+# The memory allocated for the engine in GB. This includes Data Cache, Index Cache, Live Txns etc.
+# Maximum allowed Memory is 2^48 if OS supports it. Minimum is 4GB and Default is 8Gb
+memory      = 4                  //Max memory for initdb process
+# Decision to allow huge page sizes - ONLY for Linux
+enableHugePages = false                //whether to allow Huge Page size or not
+
+#############################################################################
+# Section Start: This section is not being used and we intend to remove
+it in V10 or V11
+#############################################################################
+
+# Size of a physical file allocated on disk in GB
+segSize         = 1             //The unit is GB. Create Segments of 1Gb each. See storage characteristics documents
+# No of initial Data Segments to manage data
+dataSegCnt      = 2             //Number of segments for data. Default is 2
+# Data page size in KB (usually 1, 2, 4, 8, 16, 32)
+dataPageSize    = 1             //Data Page size. Defined in KBs. (1,2,4,8,16,32)
+# Text page size in KB (usually 1, 2, 4, 8, 16, 32)
+textPageSize    = 1             //Text pages for strings greater than 128 chars (1,2,4,8,16,32)
+# BLOB page size in KB (usually 1, 2, 4, 8, 16, 32)
+blobPageSize    = 4             //Blob/Clobs page size
+
+# No of initial Transaction Segments
+indexSegCnt     = 1             //Number of segments for index
+# Index page size in KB (usually 1, 2, 4, 8, 16, 32)
+idxPageSize     = 8             //Index Page size is the Page Allocation Unit. It is defined in KBs. Maximum is 32K.
+
+# No of initial Index Segments to contain indices for the data.
+txnSegCnt       = 1             //10Gb for Transaction - This count is always 1
+# Txn page size in KB (usually 1, 2, 4, 8, 16, 32)
+txnPageSize     = 8             //Txn Page Size is the Transaction Page Allocation Unit. It is defined in KBs. Maximum is 32K.
+
+# System User spec
+sysuser         = admin         //System Root user
+syspasswd       = admin         //System Root passwd is hashed using sha2 digest
+
+#################################################################################
+#Section End
+#################################################################################
+
+# Shared Memory for Write-Ahead Transaction log (wal/redo) entries, and system administrative tasks such as Backups in GB
+sharedmemory   = 1      //in GBs
+# The redoQDepth defines maximum number of redo transactions in the WAL device.
+redoQDepth     = 1000        //REDO queue depth
+
+# Decision to enable use of OS cache for file I/O
+useOsCache=false                      //whether to use O/S cache or not
+
+# Decision to let the OS to tell the disk driver to flush its cache to physical storage media
+writethrough=true                     //whether to let O/S flush its cache to physical storage intermittantly or not
+
+# Decision how to sync the data to the driver/disk cache.
+synctype = Data                       //types of syncs are None, Data, Range, All
+
+# No of txnprocessors with its own thread and queue to process
+txnprocessors = 8         //number of transaction processors
+# Depth of txnprocessor queue
+txnprocessorQDepth = 16         //transaction processors depth
+# No of retries for txn
+txnNumRetries = 16  // Num of Retries the txn waits for the logger space (shared memory) before giving up.
+# Timeout in seconds for txn processor
+txnTimeout = 1      // Timeout as 1 sec. Specify more if there is lot of contention between writer/looger and txn processor
+
+# No of qryprocessors with its own thread and queue to process
+qryprocessors = 8                 //number of query processors
+# Depth of qryprocessor queue
+qryprocessorQDepth = 16         //query processors depth
+
+# CacheSize is the reserved memory for page management, as a percentage of total memory
+cacheSize       = 60 // Percentage of the main memory. Subsequent caches such as index, data, shared take from this cache size
+# IndexCache is the reserved memory for index page management, specified as min,max percentage pair of total memory
+indexCache      = 50,60 // Index pages to be cached. Specified as min,max pairs of percentages of the Cache size
+# High water mark thresholds, specified as min,max percentage pair of total memory
+highThreshold   = 60,70 // High water marks points. Specified as Orange, Red pairs of percentage of the Index Cache Size.
+# Eviction strategy
+strategy        = lru // Default Strategy for now.
+indexPreload    = //List of index names to preload the index. Default means try all till the min index cache is achieved.
+
+# Log level
+level   =   info:*    ///error/warning/info/user1/user2/user3/debug/debugwire/debugmemory...
+# Log file location
+path    = ./log     //The path of the logfile. The log file name is <engine-name>_<database-name>.log[N]
+# Log file size in MB
+size    = 10        //Size of each log file in MB
+# No of log files in log rotation
+count   = 10        //Nos of log file.
+# Decision whether to log entries on console or not
+console = true      //Output the logs onto console. Errors will be displayed irrespectively.
+
+# Data service specifies how the listen port for the Database server is configured.
+[netlistener]
+name            = analytics     //Mandatory name
+host            = ::            //host/ip/interface to bind to
+port            = 8223          //listen port for this tier
+maxconnections  = 10            //maximum connections for this tier. Note: Community Edition limited to 5 connections
+ssl             = true		//ssl not supported for this release
+certificate     =               //If blank, use the default certificate, or specify the path for the certificate.
+#certificate    = /Users/suresh/ssl/certs/suresh-mbp.x509
+
+[netlistener]
+name            = oltp     	//Mandatory name
+host            = 0.0.0.0       //host/ip/interface to bind to
+port            = 8222          //listen port for this tier
+maxconnections  = 10            //maximum connections for this tier. Note: Community Edition limited to 5 connections
+ssl             = false		//ssl not supported for this release
+
+[gpu]
+enable         = false

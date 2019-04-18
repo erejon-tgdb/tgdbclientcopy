@@ -1,0 +1,1231 @@
+{
+    "TGError": {
+        "msg": "%s",
+        "cause": "",
+        "action": ""
+    },
+    "TGOperatingSystemError": {
+        "msg": "Unexpected OS error has occurred: %d - %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGNotImplemented": {
+        "msg": "Functionality not implemented: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGUnknownOption": {
+        "msg": "Unknown option: %c",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadArgument": {
+        "msg": "Invalid argument: %s",
+        "cause": "The argument supplied to the function is Null, or not within the range. Its a check put in place
+                 to safeguard against erroneous behavior.",
+        "action": "Check data in concern. If it persist, send the log to support."
+    },
+    "TGBadArgument4SharedMemory": {
+       "msg": "Bad Argument to map shared memory. Check Path:%s and size:%lld.",
+            "cause": "There are multiple causes.
+                     1.> Make sure the path to the database and shared memory file are on valid filesystem,
+                         and not on shared file system.
+                     2.> Make sure the size of the shared memory file and requested match.
+                     3.> In some case, due to unexpected shutdown, the shared memory file can't be opened or corrupted",
+            "action": "1.> Ensure the database and shared memory are on valid filesystem types
+                       2.> If you have to increase the shared memory size, then delete the shared memory file,
+                           and restart the server
+                       3.> Delete the shared memory file, and restart the server.
+                       4.> In rare circumstances, deleting the shared memory file, the system might lose some uncommitted transactions to disks.    "
+    }
+    "TGBadHandleType": {
+        "msg": "Invalid handle type",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadReferenceCount": {
+        "msg": "Bad reference count in messagepdu - Potential Memory corruption",
+        "cause": "",
+        "action": ""
+    },
+    "TGNullPointer": {
+        "msg": "Null pointer error",
+        "cause": "",
+        "action": ""
+    },
+    "TGNullOffset": {
+        "msg": "Null offset error",
+        "cause": "",
+        "action": ""
+    },
+    "TGNotSupportedType": {
+        "msg": "Type not supported: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGNotSupportedOperation": {
+        "msg": "Operation not supported: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGMaximumTryDepthExceeded": {
+        "msg": "Maximum try depth exceeded",
+        "cause": "",
+        "action": ""
+    },
+    "TGModifyingReadOnlyObject": {
+        "msg": "Cannot modify read-only object",
+        "cause": "",
+        "action": ""
+    },
+    "TGModifyingSystemGraph": {
+        "msg": "Cannot modify system graph",
+        "cause": "",
+        "action": ""
+    },
+    "TGInterrupted": {
+        "msg": "Thread interrupted or spurious woken up",
+        "cause": "",
+        "action": ""
+    },
+    "TGTimeout": {
+        "msg": "Synchronization or network timeout occurred",
+        "cause": "",
+        "action": ""
+    },
+    "TGLockNotAvailable": {
+        "msg": "Lock not available",
+        "cause": "",
+        "action": ""
+    },
+    "TGLockNotOwner": {
+        "msg": "The thread requesting lock operation is not the lock owner",
+        "cause": "",
+        "action": ""
+    },
+    "TGLockNotTaken": {
+        "msg": "Lock is not taken",
+        "cause": "",
+        "action": ""
+    },
+    "TGSpinlockInvalidState": {
+        "msg": "Synchronization corruption - Spinlock is locked when it should be available",
+        "cause": "",
+        "action": ""
+    },
+    "TGLatchInUse": {
+        "msg": "Latch in use - Cannot destroy latch or wakeup waiters",
+        "cause": "",
+        "action": ""
+    },
+    "TGLockTooManyReentrants": {
+        "msg": "Exceeded max reentrant count for lock: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGLockDeadLock": {
+        "msg": "Cannot perform lock operation: deadlock detected",
+        "cause": "",
+        "action": ""
+    },
+    "TGDefaultLogNotSet": {
+        "msg": "Default logger not set - logging to console only",
+        "cause": "",
+        "action": ""
+    },
+    "TGSymbolsNotFound": {
+        "msg": "Symbol not found: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGLoadSymbolFailed": {
+        "msg": "Failed to decompress resource buffer",
+        "cause": "",
+        "action": ""
+    },
+    "TGDlSymbolError": {
+        "msg": "Entry point function %s not found in library %s. Error: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGOutOfMemory": {
+        "msg": "Out of memory allocating %\"PRIu64\" bytes",
+        "cause": "There could be multiple causes.
+                 1.> System was incorrectly configured with little memory. The minimum memory needed should be able to load
+                     all the edge references into the cache
+                 2.> The query/transaction is using more resources, reduce the cache, and restart.
+                 3.> If it happens during startup, possible corruption in the shared memory file.
+                 4.> Generally, System is running out of memory. This could be due to a memory leak in the application."
+
+        "action": "Depending on the cause type, multiple action(s) may be needed.
+                 1.> For causes 1, 2, Work with a system architect to do capacity planning.
+                 2.> If happens during startup, delete the shared memory file, and restart.
+                 3.> For Memory leak, Support will provide you a way to generate the memory leak file, and send it to TIBCO Support"
+    },
+    "TGMemorySizeNotSupported": {
+        "msg": "Memory size %\"PRIu64\" not supported",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemoryHeapTypeNotRegistered": {
+        "msg": "Memory heap type not registered.",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocInvalidOffset": {
+        "msg": "sMMemOffsetVerify: Memory block has invalid offset. %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocFreedOffset": {
+        "msg": "sMMemOffsetVerify: Block offset %\"PRIu64\" is marked free when it should be allocated",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocBadBlockMagic": {
+        "msg": "Memory corruption - bad block magic",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocBadBlockStatus": {
+        "msg": "Memory corruption - bad block status",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocBadBlockHeader": {
+        "msg": "Memory corruption - bad block header",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocBadPageHeader": {
+        "msg": "Memory corruption - bad page header",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocBadPage": {
+        "msg": "Memory corruption - bad page",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemInvalidMemAllocator": {
+        "msg": "Memory allocator pointer is null",
+        "cause": "",
+        "action": ""
+    },
+    "TGCannotIncreaseMemoryForStackObject": {
+        "msg": "Object was allocated on stack - cannot increase memory for object",
+        "cause": "",
+        "action": ""
+    },
+    "TGCannotIncreaseMemoryForFixedSizeObjects": {
+        "msg": "Object was allocated with fixed size - cannot increase memory for object",
+        "cause": "",
+        "action": ""
+    },
+    "TGSharedMemoryNotInitialized": {
+        "msg": "Cannot access system user offset - shared memory not initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGSharedMemorySystemUserOffsetsFull": {
+        "msg": "Cannot set system user offset - offsets full",
+        "cause": "",
+        "action": ""
+    },
+    "TGMemAllocatorBadMagic": {
+        "msg": "Memory corruption - bad allocator magic",
+        "cause": "",
+        "action": ""
+    },
+    "TGOutofThreadLocalMemory": {
+        "msg": "Cannot create thread local - out of thread local memory",
+        "cause": "",
+        "action": ""
+    },
+    "TGThreadLocalKeyNotAllocated": {
+        "msg": "Thread local key not allocated",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidMemorySize": {
+        "msg": "Invalid memory size: Negative size not supported",
+        "cause": "",
+        "action": ""
+    },
+    "TGMapTypeNotRegistered": {
+        "msg": "Map type not registered",
+        "cause": "",
+        "action": ""
+    },
+    "TGMapEntryNotFound": {
+        "msg": "No map entries found for iterator",
+        "cause": "",
+        "action": ""
+    },
+    "TGMapEntryDuplicate": {
+        "msg": "Cannot add edge - Duplicate map entry found",
+        "cause": "",
+        "action": ""
+    },
+    "TGConcurrentIteratorModification": {
+        "msg": "Concurrent iterator modification not allowed",
+        "cause": "",
+        "action": ""
+    },
+    "TGSparseMapCorrupt": {
+        "msg": "Sparse map corrupt",
+        "cause": "",
+        "action": ""
+    },
+    "TGSparseMapFullOrCorrupt": {
+        "msg": "Sparse map is full or corrupt",
+        "cause": "",
+        "action": ""
+    },
+    "TGOutOfMaximumCapacityForRadixNode": {
+        "msg": "Out of maximum capacity for radix node",
+        "cause": "",
+        "action": ""
+    },
+    "TGRadixMapDoesnotSupportReverseIterator": {
+        "msg": "Radix map does not support reverse iterator - start index must be zero",
+        "cause": "",
+        "action": ""
+    },
+    "TGRadixMapDoesnotSupportBlockIncrements": {
+        "msg": "Radix map does not support block increments - index increments must be sequential",
+        "cause": "",
+        "action": ""
+    },
+    "TGIntMapDoesnotSupportReverseIterator": {
+        "msg": "Int map does not support reverse iterator - start index must be zero",
+        "cause": "",
+        "action": ""
+    },
+    "TGIntMapDoesnotSupportBlockIncrements": {
+        "msg": "Int map does not support block increments - index increments must be sequential",
+        "cause": "",
+        "action": ""
+    },
+    "TGHashMapDoesnotSupportReverseIterator": {
+        "msg": "Hash map does not support reverse iterator - start index must be zero",
+        "cause": "",
+        "action": ""
+    },
+    "TGHashMapDoesnotSupportBlockIncrements": {
+        "msg": "Hash map does not support block increments - index increments must be sequential",
+        "cause": "",
+        "action": ""
+    },
+    "TGSparseMapDoesnotSupportReverseIterator": {
+        "msg": "Sparse map does not support reverse iterator - start index must be zero",
+        "cause": "",
+        "action": ""
+    },
+    "TGSparseMapDoesnotSupportBlockIncrements": {
+        "msg": "Sparse map does not support block increments - index increments must be sequential",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadListType": {
+        "msg": "Bad list type: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGListNotRegistered": {
+        "msg": "List type not registered",
+        "cause": "",
+        "action": ""
+    },
+    "TGQueueFull": {
+        "msg": "Queue is full",
+        "cause": "",
+        "action": ""
+    },
+    "TGQueueEmpty": {
+        "msg": "Queue is empty",
+        "cause": "",
+        "action": ""
+    },
+    "TGStackEmpty": {
+        "msg": "Stack is empty",
+        "cause": "",
+        "action": ""
+    },
+    "TGArrayFull": {
+        "msg": "Array is full",
+        "cause": "",
+        "action": ""
+    },
+    "TGArrayEmpty": {
+        "msg": "",
+        "cause": "",
+        "action": ""
+    },
+    "TGArrayOutOfBounds": {
+        "msg": "Array index out of bounds. Index: %d, max: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidYear": {
+        "msg": "Datetime invalid year: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidMonth": {
+        "msg": "Datetime invalid month: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidDay": {
+        "msg": "Datetime invalid day: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidHr": {
+        "msg": "Datetime invalid hour: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidMin": {
+        "msg": "Datetime invalid minute: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeInvalidSec": {
+        "msg": "Datetime invalid second: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeBadFormat": {
+        "msg": "Datetime bad format: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeFieldOverflow": {
+        "msg": "Datetime field overflow: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatetimeNotSupportedYearDayFormat": {
+        "msg": "Datetime year/day format not supported: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGLobCreationFailed": {
+        "msg": "LOB creation failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileOpenError": {
+        "msg": "Failed to open file :%s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileNameIsNull": {
+        "msg": "File operation cannot be performed - file name is null",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileOpenFlagsNotSupported": {
+        "msg": "File open flags not supported",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileNameTooLong": {
+        "msg": "File name too long: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFilePermissionsInvalid": {
+        "msg": "File permissions invalid: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileInvalidFileHandle": {
+        "msg": "Invalid file handle: %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileReadFiled": {
+        "msg": "File read failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileWriteFailed": {
+        "msg": "File write failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileTruncateFailed": {
+        "msg": "File truncate failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileCloseFailed": {
+        "msg": "File close failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileRemoveFailed": {
+        "msg": "File remove failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileCreateTemporaryFailed": {
+        "msg": "File create temporary failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileCreateDirectoryFailed": {
+        "msg": "File create directory failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+     "TGFileRemoveDirectoryFailed": {
+        "msg": "File remove directory failed - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileCannotResolveFullPath": {
+        "msg": "Cannot resolve full path: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileNotExists": {
+        "msg": "File does not exist: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileAccessPermissionDenied": {
+        "msg": "File access permission denied: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileNotDirectory": {
+        "msg": "Not a directory: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileOtherError": {
+        "msg": "File error - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileEndOfFile": {
+        "msg": "End of file reached",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileInsufficientDiskSpace": {
+        "msg": "Insufficient disk space. Need additional: %\"PRIu64\" blocks",
+        "cause": "",
+        "action": ""
+    },
+    "TGFileSystemNotSupported": {
+        "msg": "File system not supported: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGDlOpenError": {
+        "msg": "Error opening dynamic library: %s, error: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadAttributeDescriptor": {
+        "msg": "Bad attribute descriptor",
+        "cause": "",
+        "action": ""
+    },
+    "TGAttributeInvalidCoercion": {
+        "msg": "Invalid attribute coercion. Attribute type %s cannot be converted to %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGAttributeExceededMaxLength": {
+        "msg": "Attribute length %\"PRIu64\" exceeded max length %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadNodeTypeName": {
+        "msg": "Nodetype %s does not exist",
+        "cause": "",
+        "action": ""
+    },
+    "TGMaxUsersSupportedForCommunity": {
+        "msg": "Max users exceeded - Community edition does not support more than 4 users",
+        "cause": "",
+        "action": ""
+    },
+    "TGPrimaryKeyInvalid": {
+        "msg": "Primary key invalid: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGEntityEraMismatch": {
+        "msg": "Mismatch in era of page:%\"PRId64\". Expected Era: %d, Found: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGEntityVersionMismatch": {
+        "msg": "Mismatch in entity version. Entity version: %d, dbentity version: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidNodeSpecified4Edge": {
+        "msg": "Node id:%\"PRId64\" specified as vertex is not valid for Edge id:%\"PRId64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGNodeAttributeCannotDelete": {
+        "msg": "Cannot delete node attribute",
+        "cause": "",
+        "action": ""
+    },
+    "TGEdgeNotFound": {
+        "msg": "Edge not found",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidAttributeCacheSize": {
+        "msg": "Invalid attribute cache size. Given: %d, max: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidAttributeCachePosition": {
+        "msg": "Invalid attribute cache position: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidEdgetypeDirection": {
+        "msg": "Invalid edgetype direction: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGGraphManagerNotInitialized": {
+        "msg": "Graph manager not initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidGraphManagerProvider": {
+        "msg": "Invalid graph manager provider type: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGGraphManagerProviderAlreadyRegistered": {
+        "msg": "Graph manager provider for type %d is already registered",
+        "cause": "",
+        "action": ""
+    },
+    "TGGraphEdgeDoesNotExist": {
+        "msg": "Cannot perform graph operation: edge \"PRId64\" does not exist",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexUniqueConstraintViolation": {
+        "msg": "Index unique constraint violation",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexNotUnique": {
+        "msg": "Index is not unique",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexKeyNotFound": {
+        "msg": "Index key not found",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexKeyAttributeIsNull": {
+        "msg": "Index key attribute is null",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexDefMaxColumnsExceeded": {
+        "msg": "Index def: %s has exceeded the number of attributes it can support: %d > 64",
+        "cause": "",
+        "action": ""
+    },
+    "TGIndexDefCannotAlter": {
+        "msg": "Index definition's status is active, cannot alter definition",
+        "cause": "",
+        "action": ""
+    },
+    "TGSegmentManagerExists": {
+        "msg": "Segment manager for type %d already exists. Cannot re-create this segment manager",
+        "cause": "",
+        "action": ""
+    },
+    "TGMaxSegmentsForDatabase": {
+        "msg": "Cannot create segment id %d - max is %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatabaseCorrupt": {
+        "msg": "Database corrupt: cannot load control pages",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatabaseAlreadyInitialized": {
+        "msg": "Cannot perform database inititialization phase - database already initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGControlSegmentManagerNotInitialized": {
+        "msg": "Cannot perform segment manager action on control segment - control segment manager not initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidSegmentManager": {
+        "msg": "Cannot perform segment manager page action - invalid segment manager",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidSegmentId": {
+        "msg": "Invalid segment ID: %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGSegmentFull": {
+        "msg": "Cannot create new segment page - segment full",
+        "cause": "",
+        "action": ""
+    },
+    "TGDatabaseFull": {
+        "msg": "Database is full",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidSizeSpecified": {
+        "msg": "Cannot create disk page - invalid size specified",
+        "cause": "",
+        "action": ""
+    },
+    "TGPageManagerNotInitialized": {
+        "msg": "Cannot perform page manager operation - page manager not initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGPageFull": {
+        "msg": "Cannot insert entry - page full",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadPage": {
+        "msg": "Cannot perform page operation - bad page",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidPageLockRequested": {
+        "msg": "Invalid page lock type: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGPageDeleted": {
+        "msg": "Page is deleted",
+        "cause": "",
+        "action": ""
+    },
+    "TGPageNotLocked": {
+        "msg": "Page is not locked",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadLockType": {
+        "msg": "Bad lock specified for unlock: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGSharedPageInvalidAllocationUnit": {
+        "msg": "Shared page invalid allocation unit",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidTextPageSpecified": {
+        "msg": "Invalid text page specified: %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGFMBadCheckSum": {
+        "msg": "Bad checksum",
+        "cause": "",
+        "action": ""
+    },
+    "TGMicroBTreeIteratorSetupFailed": {
+        "msg": "Micro BTree iterator setup failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGBTreeLoadPageFailed": {
+        "msg": "BTree load page failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGBTreePageisNotRootPage": {
+        "msg": "BTree page is not root page",
+        "cause": "",
+        "action": ""
+    },
+    "TGPageSlotInvalidPosition": {
+        "msg": "Page slot invalid position: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadEntitySlotType": {
+        "msg": "Bad entity slot type: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGIsamMaxDepthExceeded": {
+        "msg": "Isam max depth exceeded. Current depth: %d, max: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketInvalid": {
+        "msg": "Socket error: socket invalid",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketAddressError": {
+        "msg": "Socket address error at %s:%d",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketConnectError": {
+        "msg": "Socket connect error at %s:%d",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketBindError": {
+        "msg": "Socket bind error at %s:%d",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketIOFailed": {
+        "msg": "Socket error: socket IO failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketShutdownError": {
+        "msg": "Socket shutdown error - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketRecvError": {
+        "msg": "Socket receive error",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketCloseError": {
+        "msg": "Socket close error - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketAcceptError": {
+        "msg": "Socket accept error - %d: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGSocketDisconnected": {
+        "msg": "Socket disconnected",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadSocketState": {
+        "msg": "Bad socket state",
+        "cause": "",
+        "action": ""
+    },
+    "TGEventBaseBadState": {
+        "msg": "Bad event base state",
+        "cause": "",
+        "action": ""
+    },
+    "TGEventAddFailed": {
+        "msg": "Failed to add event",
+        "cause": "",
+        "action": ""
+    },
+    "TGEventDeleteFailed": {
+        "msg": "Failed to delete event",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityLibraryNotRegistered": {
+        "msg": "Security library is not registered",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityLibraryNotInitialized": {
+        "msg": "Security library is not initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityLibraryAlreadyInitialized": {
+        "msg": "Cannot register security provider - Security library is already initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityEngineFailed2Initialize": {
+        "msg": "Failed to initialize security engine: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityInvalidCipherName": {
+        "msg": "Security cipher name is null",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityPRGNFailed2Initialize": {
+        "msg": "Security PRGN failed to initialize",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityNoCertificatesConfigured": {
+        "msg": "No security certificate configured",
+        "cause": "",
+        "action": ""
+    },
+    "TGSecurityProviderRuntimeError": {
+        "msg": "Security provider runtime error: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadUrl": {
+        "msg": "Bad URL: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGConnectionProtocolNotSupported": {
+        "msg": "Connection protocol not supported",
+        "cause": "",
+        "action": ""
+    },
+    "TGPduBadMagic": {
+        "msg": "Bad magic in PDU header",
+        "cause": "",
+        "action": ""
+    },
+    "TGInsufficientBufferLength": {
+        "msg": "Insufficient buffer length. Length: %d, capacity: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGOutputStreamInvalidPosition": {
+        "msg": "Output stream invalid position. Position: %d, capacity: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadPDUMessage": {
+        "msg": "Bad PDU message",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadPDUHeader": {
+        "msg": "Bad PDU header",
+        "cause": "",
+        "action": ""
+    },
+    "TGHandShakeFailed": {
+        "msg": "Handshake failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGAuthenticationFailed": {
+        "msg": "Authentication failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGPermissionNotAllowed": {
+        "msg": "Permission not Allowed",
+        "cause": "",
+        "action": ""
+    },
+    "TGUserNotFound": {
+        "msg": "User %s not found",
+        "cause": "",
+        "action": ""
+    },
+    "TGUserPasswordInvalid": {
+        "msg": "User password invalid",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadAdminCommand": {
+        "msg": "Bad admin command",
+        "cause": "",
+        "action": ""
+    },
+    "TGBadQueryCommand": {
+        "msg": "Bad query command",
+        "cause": "",
+        "action": ""
+    },
+    "TGLZInsufficientBufferLength": {
+        "msg": "Lzip insufficient buffer length. Position: %d, max: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGLZInsufficentSourceLengthForCompression": {
+        "msg": "Lzip insufficient source length for compression",
+        "cause": "",
+        "action": ""
+    },
+    "TGLZAlreadyCompressed": {
+        "msg": "Lzip already compressed",
+        "cause": "",
+        "action": ""
+    },
+    "TGLZBadDataBlock": {
+        "msg": "Compressed data is corrupt",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidTypeRegistry": {
+        "msg": "Invalid type registry",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidSystemType": {
+        "msg": "Invalid system type: %d",
+        "cause": "",
+        "action": ""
+    },
+    "TGDuplicateSystemObject": {
+        "msg": "Error creating entity %s: a duplicate entity exists on the server",
+        "cause": "",
+        "action": ""
+    },
+    "TGDuplicateAttributeDescriptor": {
+        "msg": "Duplicate attribute descriptor",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidEntityId": {
+        "msg": "Invalid entity ID: %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidEdgeTypeId": {
+        "msg": "Invalid edgetype ID: %\"PRIu64\"",
+        "cause": "",
+        "action": ""
+    },
+    "TGLicenseBadAcceptFile": {
+        "msg": "License - bad accept file",
+        "cause": "",
+        "action": ""
+    },
+    "TGLicenseNotAccepted": {
+        "msg": "License not accepted",
+        "cause": "",
+        "action": ""
+    },
+    "TGServerAlreadyInitialized": {
+        "msg": "Cannot perform server initialization phase - server already initialized",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigParsingError": {
+        "msg": "Config parsing error",
+        "cause": "",
+        "action": ""
+    },
+    "TGCSVParserNotInitialized": {
+        "msg": "CSV parser must be initialized before parse request",
+        "cause": "",
+        "action": ""
+    },
+    "TGNetListenersNotConfigured": {
+        "msg": "Net listeners not configured",
+        "cause": "",
+        "action": ""
+    },
+    "TGInvalidConfigurationFileSpecified": {
+        "msg": "Invalid configuration file specified: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigInvalidLogLevelDefinition": {
+        "msg": "Invalid log level definition in configuration file: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigInvalidAttributeDefinition": {
+        "msg": "Invalid attribute descriptor type for attribute %s in configuration file",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigInvalidNodetypeDefinition": {
+        "msg": "Invalid definition for nodetype %s in configuration file: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigInvalidEdgetypeDefinition": {
+        "msg": "Invalid definition for edgetype %s in configuration file: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGConfigInvalidIndexDefinition": {
+        "msg": "Invalid definition for index %s in configuration file: %s",
+        "cause": "",
+        "action": ""
+    },
+    "TGCatalogIndexNotLoaded": {
+        "msg": "Catalog index not loaded",
+        "cause": "",
+        "action": ""
+    },
+    "TGProcessorRunning": {
+        "msg": "Could not start task processor - processor already running",
+        "cause": "",
+        "action": ""
+    },
+    "TGProcessorSuspended": {
+        "msg": "Could not start task processor - processor suspended",
+        "cause": "",
+        "action": ""
+    },
+    "TGProcessorStopped": {
+        "msg": "Task processor stopped",
+        "cause": "",
+        "action": ""
+    },
+    "TGTaskInvalidPriority": {
+        "msg": "Task priority %d out of range",
+        "cause": "",
+        "action": ""
+    },
+    "TGTaskBadState": {
+        "msg": "Task bad state",
+        "cause": "",
+        "action": ""
+    },
+    "TGTaskExecutionDeadlock": {
+        "msg": "Task execution deadlock",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionAlreadyInProgress": {
+        "msg": "Transaction already in progress",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionClientDisconnected": {
+        "msg": "Transaction client disconnected",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionMalFormed": {
+        "msg": "Transaction malformed",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionGeneralError": {
+        "msg": "Transaction general error",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionVerificationError": {
+        "msg": "Transaction verification error",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionInBadState": {
+        "msg": "Transaction in bad state",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionUniqueConstraintViolation": {
+        "msg": "Transaction unique constraint violation",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionOptimisticLockFailed": {
+        "msg": "Transaction optimistic lock failed",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionResourceExceeded": {
+        "msg": "Transaction resource exceeded: Out of system resources, please check with admin",
+        "cause": "",
+        "action": ""
+    },
+    "TGCurrentThreadNotinTransaction": {
+        "msg": "Current thread not in transaction",
+        "cause": "",
+        "action": ""
+    },
+    "TGTransactionUniqueIndexKeyAttributeNullError": {
+        "msg": "Transaction unique index key attribute is null",
+        "cause": "",
+        "action": ""
+    },
+    "TGQueryParsingError": {
+        "msg": "Parsing failed due to error :%s",
+        "cause": "",
+        "action": ""
+    },
+    "TGBfsRunInterrupted": {
+        "msg": "BFS run interrupted",
+        "cause": "",
+        "action": ""
+    },
+    "TGImportInvalidDirectory": {
+        "msg": "Import directory is invalid",
+        "cause": "The directory specified in the import section of the database initialization 
+                 configuration file cannot be found, or the syntax for specifying the directory is invalid.",
+        "action": "Double check the given directory and ensure that the path is valid. Also ensure that
+                  the syntax is valid: \"dir = <path_to_import_folder>\"."
+    },
+    "TGImportInvalidFileFormat": {
+        "msg": "Import file format is invalid: %s",
+        "cause": "A line for importing edges has an invalid format.",
+        "action": "Ensure that each line in the CSV files for importing edges begins with these columns:
+                  \"<edge ID>,<edgetype ID>,<from node ID>,<to node ID>\". Additionally, ensure that the
+                  edgetype ID is a non-zero positive integer."
+    },
+    "TGImportPKeyNotFound": {
+        "msg": "Node pkey not found: %s",
+        "cause": "The nodetype was defined with a primary key, but the import CSV files include a node which
+                 does not have a value for this primary key.",
+        "action": "Ensure that the node specified has a value for the primary key that was included in the 
+                  nodetype definition."
+    },
+    "TGImportInvalidEdgeTypeId": {
+        "msg": "Invalid edgetype ID for import: %\"PRIu64\"",
+        "cause": "The edgetype ID is not a valid system type ID, or was not included in the edgetype definition
+                 in the configuration file.",
+        "action": "Ensure that the edgetype ID is a valid system type ID (1024 - undirected; 1025 - directed; 
+                  1026 - bidirected), or it must correspond to the \"@importid\" field in the edgetype
+                  definition for the configuration file used for import."
+    },
+    "TGImportInvalidNodeId": {
+        "msg": "Node ID %s for import not found",
+        "cause": "One of the vertices of an edge in the edge CSV file does not correspond to a node that was
+                 successfully imported.",
+        "action": "Ensure that the given node ID was listed in a node CSV file and that it was imported without
+                  error."
+    },
+    "TGCudaNoDeviceAvailable": {
+        "msg": "There are no devices available that support CUDA",
+        "cause": "",
+        "action": ""
+    },
+    "TGCudaOperationError": {
+        "msg": "Error in %s [%s]",
+        "cause": "",
+        "action": ""
+    },
+    "TGCudaDriverVersionInCompatible": {
+        "msg": "Driver version[%d.%d] is not compatible with device version[%d.%d]",
+        "cause": "",
+        "action": ""
+    },
+    "TGCudaDeviceComputeProhibited": {
+        "msg": "Device is configured to use only for Display, and not for compute. Compute mode is set to:%s",
+        "cause": "",
+        "action": ""
+    }
+}

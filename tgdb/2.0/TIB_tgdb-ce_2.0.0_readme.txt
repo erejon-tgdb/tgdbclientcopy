@@ -1,0 +1,124 @@
+======================================================================
+Product Name	 : TIBCO(R) Graph Database - Community Edition
+Release Version	 : 2.0.0
+Release Date	 : November 2018
+
+======================================================================
+Introduction 
+
+TIBCO Graph Database allows users to leverage the “Power of
+Relationships” to solve connectivity and reachability
+problems at scale.
+
+To unveil the true value of constantly evolving business data,
+it is critical to connect and understand the relationships
+between data in a much more meaningful way. Unlike other
+databases, TIBCO Graph Database puts relationships at the
+forefront and utilizes Graph theory and Linear Algebra to
+traverse and more thoroughly understand complex webs of data.
+It allows users to discover, store and convert complex dynamic
+data into meaningful and understandable insights for the
+business.
+
+TIBCO Graph Database can be effectively leveraged for various
+use-cases including:
+
+Graph Traversals and Aggregation:
+Various use-cases in logistics, manufacturing, supply-chain,
+pharmaceuticals, and resource management require complex
+traversal and aggregation of datasets in near real time.
+Traditional relational databases cannot handle these types of
+queries, given the growing volumes and complexity. The TIBCO(R)
+Graph Database can be effectively leveraged to execute complex
+graph traversals and computations on modern CPU(s) to deliver
+linear performance at scale.
+
+Root Cause and Impact Analysis:
+Empower users to quickly identify the root cause behind
+business opportunities or threats by executing advanced
+analytical algorithms on knowledge graphs leveraging modern
+GPU-based hardware architectures.
+
+Artificial Intelligence Data Store:
+AI knowledge is represented as a dense temporal network data
+set. The TIBCO(R) Graph Database enables users to utilize AI
+algorithms and models to effectively and efficiently ask the
+right set of questions of their data to discover additional
+insights.
+
+IoT Applications:
+Create digital twin representations or device virtual
+identities by efficiently representing and managing multiple
+profiles. Scale to support millions of IoT devices and their
+attributes (programmable and non-programmable) as knowledge
+graphs.
+
+======================================================================
+Supported Platforms
+
+   Apple Mac OS X
+      10.11.x, 10.12.x, 10.13.x 64-bit on x86-64
+   CentOS
+      6.x, 7.x 64-bit on x86-64
+   Microsoft Windows
+      7, 8, 10 64-bit on x86-64
+   Red Hat Enterprise Linux Server
+      6.x, 7.x 64-bit on x86-64
+
+======================================================================
+Supported Third-party Software
+
+   Containerization Platform
+     Docker 17.x
+
+   Development Tool
+     Sun Server Java Runtime Environment 1.8.x
+
+======================================================================
+Product-Specific Information 
+
+Minimum Software Requirements:
+Server Side 
+    Architecture:     Intel/AMD x86_64 Intel’s Haswell micro
+architecture. 
+                      Support for AVX2 (Advance Vector
+Extension)
+
+    FileSystem  :     General Block Device
+         Windows:     NTFS supported. ReFS not tested, but
+should work.
+
+         Linux  :     EXT4, NFSV3+, XFS, BTRFS supported. VxFS,
+OCFS filesystem have not 
+                      been tested, but should work.
+
+         OSX    :     HFS+, APS, APFS, NFSV3+ supported.
+
+    Database    :     Minimum 2GB
+
+    Memory size :     2GB working memory. 1GB Shared Memory for
+Transaction Logs.
+
+    GPU (Optional) : NVIDIA (with CUDA toolkit)
+         Minimum Architecture :  Pascal+
+         CUDA Driver          :  9.0+
+
+Client Side  
+    JDK         :     1.8+
+    Memory      :     2GB
+    
+Gremlin    Query Language
+    Tutorial for using Gremlin Language can be found here.
+    https://kelvinlawrence.net/book/Gremlin-Graph-Guide.html
+
+    Reference for Gremlin Language can be found here.
+    http://tinkerpop.apache.org/docs/3.3.3/reference/
+
+======================================================================
+Copyright
+
+Copyright (c) 2016-2018, TIBCO Software Inc. All rights reserved.
+TIBCO Software Inc. Confidential Information
+
+
+
